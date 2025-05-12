@@ -8,11 +8,11 @@ We will start with a basic CoDeSys SoftMotion project, configure it as an OPC UA
 
 **Key Technologies Used:**
 
-*   **CoDeSys:** V3.5 SP16 or higher (using Simulation Mode)
+*   **CoDeSys:** V3.5 SP19 patch 5
 *   **SoftMotion:** Virtual Axis for simulation
 *   **OPC UA:** The communication protocol
 *   **Python:** 3.7+
-*   **python-opcua (`asyncua` sync wrapper):** Python library for OPC UA communication (`opcua.sync`)
+*   **python-opcua (`asyncua` sync wrapper):** Python library for OPC UA communication (`asyncua.sync`)
 *   **Matplotlib:** Python library for plotting data
 
 ## YouTube Tutorial
@@ -26,18 +26,6 @@ We will start with a basic CoDeSys SoftMotion project, configure it as an OPC UA
 2.  **Python:** Python 3.7 or later installed. You can get it from [python.org](https://www.python.org/) or use distributions like Anaconda/Miniconda.
 3.  **(Optional but Recommended) OPC UA Client Tool:** [UaExpert](https://www.unified-automation.com/downloads/opc-ua-clients.html) is a popular, free client useful for browsing the OPC UA server structure and testing the connection independently of Python.
 4.  **Basic Knowledge:** Familiarity with basic PLC programming concepts (variables, GVLs) and basic Python syntax is helpful.
-
-## Repository Structure
-├── CoDeSys_Projects/
-│ ├── OPC-UA_Server Example Project - Start.project # Use this to follow the video's CoDeSys setup steps
-│ └── OPC-UA_Server Example Project - Complete.project # Reference project with OPC UA already configured
-├── Python_Scripts/
-│ ├── connect_to_server.py # 1. Connects and reads Axis Position
-│ ├── plot_data_from_server.py # 2. Reads Axis Position over time and plots it
-│ └── plot_multiple_data_from_server.py # 3. Reads Axis Position, Velocity and Acceleration and plots them
-├── .gitignore # Standard Python gitignore
-├── LICENSE # MIT License
-└── README.md # This file
 
 ## Setup Instructions
 
@@ -90,10 +78,5 @@ We will start with a basic CoDeSys SoftMotion project, configure it as an OPC UA
 *   Once connected, browse the 'Address Space' panel: `Objects` -> `DeviceSet` -> `CODESYS Control Win V3` (or similar) -> `Resources` -> `Plc Logic` -> `Application` -> `GVLs` -> `GVL_AxisData`.
 *   You should see `lrAxisPosition`, `lrAxisVelocity`, `lrAxisAcceleration`. Drag them to the 'Data Access View' panel to see their values update live when you interact with the simulation in CoDeSys.
 
-## Running the Python Examples
 
-**Ensure the CoDeSys project is running in Simulation mode before executing any Python script.**
 
-Navigate to the `Python_Scripts` directory in your terminal:
-```bash
-cd path/to/tutorial-codesys-opc-ua-with-python/Python_Scripts
