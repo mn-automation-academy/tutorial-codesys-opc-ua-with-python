@@ -22,7 +22,7 @@ We will start with a basic CoDeSys SoftMotion project, configure it as an OPC UA
 
 ## Prerequisites
 
-1.  **CoDeSys Development System:** Version 3.5 SP16 or later. Downloadable for free from the [CoDeSys Store](https://store.codesys.com/codesys.html). (Requires registration).
+1.  **CoDeSys Development System:** Version 3.5 SP19 patch 5 to ensure compatibility. Downloadable for free from the [CoDeSys Store](https://store.codesys.com/codesys.html). (Requires registration).
 2.  **Python:** Python 3.7 or later installed. You can get it from [python.org](https://www.python.org/) or use distributions like Anaconda/Miniconda.
 3.  **(Optional but Recommended) OPC UA Client Tool:** [UaExpert](https://www.unified-automation.com/downloads/opc-ua-clients.html) is a popular, free client useful for browsing the OPC UA server structure and testing the connection independently of Python.
 4.  **Basic Knowledge:** Familiarity with basic PLC programming concepts (variables, GVLs) and basic Python syntax is helpful.
