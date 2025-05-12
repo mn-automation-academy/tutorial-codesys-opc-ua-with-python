@@ -35,15 +35,16 @@ We will start with a basic CoDeSys SoftMotion project, configure it as an OPC UA
 *   **Open Project:** Open the `CoDeSys_Projects/OPC-UA_Server Example Project - Start.project` in your CoDeSys Development System.
     *   This project contains a simple program (`PLC_PRG`) controlling a virtual SoftMotion axis (`Axis1`) and a Global Variable List (`OPC_GVL`) to hold data for OPC UA.
 *   **(Follow Video for Setup):** The video tutorial walks through these steps using the `Start` project:
-    *   **Symbol Configuration:** Adding a 'Symbol Configuration' object, building the project, selecting `OPC_GVL` (or specific variables inside it) for exposure, and enabling "Support OPC UA features".
-    *   **Enable OPC UA Server:** Double-clicking 'Device', going to the 'OPC UA Server' tab, checking 'Activate OPC UA Server'. Note the endpoint URL (usually `opc.tcp://localhost:4840`).
+    *   **Symbol Configuration:** Adding a 'Symbol Configuration' object, building the project, selecting `GVL_AxisData` (or specific variables inside it) for exposure, and enabling "Support OPC UA features".
+    *   **Disable OPC UA Authentication:** Double-clicking 'Device', going to the 'Communication Settings' tab, clicking on 'Device', and then on 'Change Runtime Security Policy' checking 'Allow anonymous login'. Note the endpoint URL (usually `opc.tcp://localhost:4840`).
 *   **Reference Project:** `OPC-UA_Server Example Project - Complete.project` has the Symbol Configuration and OPC UA server already set up for comparison.
 *   **Run Simulation:**
-    *   Enable Simulation mode (`Online` -> `Simulation`).
+    *   Start the local PLC (`Right Click on CoDeSys tray` -> `Start PLC`).
     *   Login (`Online` -> `Login`).
+    *   Create user authentication and login if prompterd.
     *   Download the project if prompted.
     *   Start the PLC (`Debug` -> `Start` or F5).
-    *   You can manually toggle variables like `bEnable` or `bMoveVel` in `PLC_PRG` to see the simulated axis move and `OPC_GVL.rAxisPosition` update.
+    *   You can manually toggle variables like `StartButton` or `StopButton` in `PLC_PRG` to see the simulated axis move and `GVL_AxisData.lrAxisPosition` update.
 
 ### 2. Python Environment & Libraries
 
@@ -78,5 +79,15 @@ We will start with a basic CoDeSys SoftMotion project, configure it as an OPC UA
 *   Once connected, browse the 'Address Space' panel: `Objects` -> `DeviceSet` -> `CODESYS Control Win V3` (or similar) -> `Resources` -> `Plc Logic` -> `Application` -> `GVLs` -> `GVL_AxisData`.
 *   You should see `lrAxisPosition`, `lrAxisVelocity`, `lrAxisAcceleration`. Drag them to the 'Data Access View' panel to see their values update live when you interact with the simulation in CoDeSys.
 
+## Running the Python Examples
 
+**Ensure the CoDeSys project is running in Simulation mode before executing any Python script.**
+
+Navigate to the `Python_Scripts` directory in your terminal:
+
+```bash
+cd path/to/tutorial-codesys-opc-ua-with-python/Python_Script
+python connect_to_server.py
+python plot_data_from_server.py
+python plot_multiple_data_from_server.py
 
